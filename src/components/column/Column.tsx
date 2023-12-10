@@ -1,13 +1,13 @@
 import React from 'react';
-import { ColumnContainer, ColumnTitle } from '../app/styles';
+import { ColumnContainer, ColumnTitle } from './styles';
 
 type ColumnProps = {
-  text: string
+  text: string,
 }
 
-export const Column = ({ 
+export const Column = ({
   text,
-  children
+  children,
 }: React.PropsWithChildren<ColumnProps>) => {
   return (
     <ColumnContainer>
@@ -17,4 +17,4 @@ export const Column = ({
       {children}
     </ColumnContainer>
   );
-}
+};

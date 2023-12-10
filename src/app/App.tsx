@@ -1,7 +1,8 @@
 import React from 'react';
-import { Column } from '../components/Column';
-import { Card } from '../components/Card';
+import { Column } from '../components/column/Column';
+import { Card } from '../components/card/Card';
 import { AppContiner } from './styles';
+import { AddNewItem } from '../components/addNewItem/AddNewItem';
 
 const App = () => {
   return (
@@ -15,10 +16,10 @@ const App = () => {
       <Column text='Done'>
         <Card text='Begin to use static typing'/>
       </Column>
-      {/* <AddNewItem
+      <AddNewItem
         toggleButtonText="+ Add another list"
         onAdd={console.log}
-      /> */}
+      />
     </AppContiner>
   );
 };
