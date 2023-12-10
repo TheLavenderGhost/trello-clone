@@ -1,5 +1,5 @@
 import React from 'react';
-import { CardContainer } from './styles';
+import './styles.css';
 
 type CardProps = {
   text: string,
@@ -7,8 +7,8 @@ type CardProps = {
 
 export const Card = ({ text }: CardProps) => {
   return (
-    <CardContainer>
+    <div className='card-container'>
       {text}
-    </CardContainer>
+    </div>
   );
 };

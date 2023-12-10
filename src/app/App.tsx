@@ -1,12 +1,12 @@
 import React from 'react';
+import './styles.css';
 import { Column } from '../components/column/Column';
 import { Card } from '../components/card/Card';
-import { AppContiner } from './styles';
 import { AddNewItem } from '../components/addNewItem/AddNewItem';
 
 const App = () => {
   return (
-    <AppContiner>
+    <div className='app-continer'>
       <Column text='To Do'>
         <Card text='Generate app scaffold'/>
       </Column>
@@ -20,7 +20,7 @@ const App = () => {
         toggleButtonText="+ Add another list"
         onAdd={console.log}
       />
-    </AppContiner>
+    </div>
   );
 };
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { AddItemButton } from './styles';
+import './styles.css';
 import { NewItemForm } from './NewItemForm';
 
 type AddNewItemProps = {
@@ -25,11 +25,11 @@ export const AddNewItem = (props: AddNewItemProps) => {
   }
 
   return (
-    <AddItemButton
-      dark={props.dark}
+    <button
+      className={`add-item-button ${props.dark ? 'dark' : null}`}
       onClick={() => setShowForm(true)}
     >
       {props.toggleButtonText}
-    </AddItemButton>
+    </button>
   );
 };

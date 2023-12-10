@@ -1,6 +1,4 @@
-import styled from 'styled-components';
-
-export const AppContiner = styled.div`
+div.app-continer {
   align-items: flex-start;
   background-color: #3179ba;
   display: flex;
@@ -8,4 +6,4 @@ export const AppContiner = styled.div`
   height: 100%;
   padding: 20px;
   width: 100%;
-`;
+}
