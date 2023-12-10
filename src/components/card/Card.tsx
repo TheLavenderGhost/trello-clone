@@ -3,6 +3,7 @@ import './styles.css';
 
 type CardProps = {
   text: string,
+  index: number,
 };
 
 export const Card = ({ text }: CardProps) => {
