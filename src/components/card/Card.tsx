@@ -1,8 +1,8 @@
 import React from 'react';
-import { CardContainer } from '../app/styles';
+import { CardContainer } from './styles';
 
 type CardProps = {
-  text: string
+  text: string,
 };
 
 export const Card = ({ text }: CardProps) => {
@@ -10,5 +10,5 @@ export const Card = ({ text }: CardProps) => {
     <CardContainer>
       {text}
     </CardContainer>
-  )
+  );
 };
