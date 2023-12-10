@@ -4,6 +4,7 @@ import {
   NewItemButton,
   NewItemInput,
 } from './styles';
+import { useInputFocus } from '../../utils/useInputFocus';
 
 type NewItemFormProps = {
   onAdd(text: string): void,
@@ -11,10 +12,12 @@ type NewItemFormProps = {
 
 export const NewItemForm = ({ onAdd }: NewItemFormProps) => {
   const [ text, setText ] = useState('');
+  const inputRef = useInputFocus();
 
   return (
     <NewItemFormContainer>
       <NewItemInput
+        ref={inputRef}
         value={text}
         onChange={e => setText(e.target.value)}
       />

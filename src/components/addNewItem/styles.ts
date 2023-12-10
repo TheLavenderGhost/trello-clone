@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 type AddItemButtonProps = {
-  dark?: boolean;
+  dark?: boolean
 }
 
 export const AddItemButton = styled.button<AddItemButtonProps>`
@@ -16,7 +16,7 @@ export const AddItemButton = styled.button<AddItemButtonProps>`
   transition: background 85ms ease-in;
   width: 100%;
   &:hover {
-  background-color: #ffffff52;
+    background-color: #ffffff52;
   }
 `;
 
