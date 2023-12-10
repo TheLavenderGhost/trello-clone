@@ -6,6 +6,8 @@ import React, {
 import { nanoid } from 'nanoid';
 import { overrideItemAtIndex } from '../utils/arrayUtils';
 
+// todo refactor
+
 type Task = {
   id: string,
   text: string,
