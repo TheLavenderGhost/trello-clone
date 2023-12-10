@@ -1,5 +1,5 @@
 import React from 'react';
-import { ColumnContainer, ColumnTitle } from './styles';
+import './styles.css';
 import { AddNewItem } from '../addNewItem/AddNewItem';
 
 type ColumnProps = {
@@ -11,16 +11,16 @@ export const Column = ({
   children,
 }: React.PropsWithChildren<ColumnProps>) => {
   return (
-    <ColumnContainer>
-      <ColumnTitle>
+    <div className='column-container'>
+      <div className='column-title'>
         {text}
-      </ColumnTitle>
+      </div>
       {children}
       <AddNewItem
         toggleButtonText='+ Add another task'
         onAdd={console.log}
         dark
       />
-    </ColumnContainer>
+    </div>
   );
 };

@@ -1,9 +1,4 @@
 import React, { useState } from 'react';
-import {
-  NewItemFormContainer,
-  NewItemButton,
-  NewItemInput,
-} from './styles';
 import { useInputFocus } from '../../utils/useInputFocus';
 import { Key } from '../../common/enums';
 
@@ -24,16 +19,19 @@ export const NewItemForm = ({ onAdd }: NewItemFormProps) => {
   };
 
   return (
-    <NewItemFormContainer>
-      <NewItemInput
+    <div className='new-item-form-container'>
+      <input className='new-item-input'
         ref={inputRef}
         value={text}
         onChange={e => setText(e.target.value)}
         onKeyDown={handleAddText}
       />
-      <NewItemButton onClick={() => onAdd(text)}>
+      <button
+        className='new-item-button'
+        onClick={() => onAdd(text)}
+      >
         Create
-      </NewItemButton>
-    </NewItemFormContainer>
+      </button>
+    </div>
   );
 };
