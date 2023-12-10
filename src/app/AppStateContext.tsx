@@ -4,10 +4,7 @@ import React, {
   useContext,
 } from 'react';
 import { nanoid } from 'nanoid';
-import {
-  findItemIndexById,
-  overrideItemAtIndex,
-} from '../utils/arrayUtils';
+import { overrideItemAtIndex } from '../utils/arrayUtils';
 
 type Task = {
   id: string,
@@ -111,10 +108,7 @@ const appStateReducer = (state: AppState, action: Action): AppState => {
       };
     }
     case 'addTask': {
-      const targetListIndex = findItemIndexById(
-        state.lists,
-        action.payload.listId
-      );
+      const targetListIndex = state.lists.findIndex(item => item.id === action.payload.listId);
 
       const targetList = state.lists[targetListIndex];
 
