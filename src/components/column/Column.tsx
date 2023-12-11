@@ -17,15 +17,13 @@ export const Column = ({ ...props }: ColumnProps) => {
 
   const { drag } = useItemDrag({
     type: 'column',
-    id: props.id,
-    index: props.index,
-    text: props.text,
+    ...props,
   });
 
   drag(ref);
 
   return (
-    <div className='column-container' ref={ref}>
+    <div className='column-container' ref={drag}>
       <div className='column-title'>
         {props.text}
       </div>
