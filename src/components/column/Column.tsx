@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import './styles.css';
 import { AddNewItem } from '../addNewItem/AddNewItem';
 import { useAppState } from '../../app/AppStateContext';
 import { Card } from '../card/Card';
+import { useItemDrag } from '../dragItem/useItemDrag';
 
 type ColumnProps = {
   text: string,
@@ -10,19 +11,25 @@ type ColumnProps = {
   id: string,
 }
 
-export const Column = ({
-  text,
-  index,
-  id,
-}: ColumnProps) => {
+export const Column = ({ ...props }: ColumnProps) => {
   const { state, dispatch } = useAppState();
+  const ref = useRef<HTMLDivElement>(null);
+
+  const { drag } = useItemDrag({
+    type: 'column',
+    id: props.id,
+    index: props.index,
+    text: props.text,
+  });
+
+  drag(ref);
 
   return (
-    <div className='column-container'>
+    <div className='column-container' ref={ref}>
       <div className='column-title'>
-        {text}
+        {props.text}
       </div>
-      {state.lists[index].tasks.map((task, i) => (
+      {state.lists[props.index].tasks.map((task, i) => (
         <Card
           key={task.id}
           text={task.text}
@@ -35,7 +42,7 @@ export const Column = ({
           type: 'addTask',
           payload: {
             text,
-            listId: id,
+            listId: props.id,
           },
         })}
         dark

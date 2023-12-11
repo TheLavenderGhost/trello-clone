@@ -4,7 +4,11 @@ import React, {
   useContext,
 } from 'react';
 import { nanoid } from 'nanoid';
-import { overrideItemAtIndex } from '../utils/arrayUtils';
+import {
+  overrideItemAtIndex,
+  moveItem,
+} from '../utils/arrayUtils';
+import { DragItem } from '../components/dragItem/DragItem';
 
 // todo refactor
 
@@ -21,6 +25,7 @@ type List = {
 
 export type AppState = {
   lists: List[],
+  draggedItem: DragItem | undefined;
 };
 
 const appData: AppState = {
@@ -56,6 +61,7 @@ const appData: AppState = {
       ],
     },
   ],
+  draggedItem: undefined,
 };
 
 type AppStateContextProps = {
@@ -92,6 +98,15 @@ type Action = {
     text: string,
     listId: string,
   }
+} | {
+  type: 'moveList',
+  payload: {
+    dragIndex: number,
+    hoverIndex: number,
+  },
+} | {
+  type: 'setDraggedItem',
+  payload: DragItem | undefined,
 };
 
 const appStateReducer = (state: AppState, action: Action): AppState => {
@@ -132,6 +147,19 @@ const appStateReducer = (state: AppState, action: Action): AppState => {
           updatedTargetList,
           targetListIndex
         ),
+      };
+    }
+    case 'moveList': {
+      const { dragIndex, hoverIndex } = action.payload;
+      return {
+        ...state,
+        lists: moveItem(state.lists, dragIndex, hoverIndex),
+      };
+    }
+    case 'setDraggedItem': {
+      return {
+        ...state,
+        draggedItem: action.payload,
       };
     }
     default: {
